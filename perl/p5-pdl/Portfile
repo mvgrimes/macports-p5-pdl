@@ -95,7 +95,7 @@ if {${perl5.major} != ""} {
             ${worksrcpath}/Doc/scantree.pl ${worksrcpath}/blib/lib \
             ${worksrcpath}/blib/lib/PDL/pdldoc.db \
             ${worksrcpath}/blib/lib/PDL/Index.pod \
-            >/dev/null
+            >/dev/null 2>/dev/null
         reinplace "s|${worksrcpath}/blib/lib|${perl5.lib}|g" \
             ${worksrcpath}/blib/lib/PDL/pdldoc.db
     }
