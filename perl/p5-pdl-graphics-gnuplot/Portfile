@@ -1,0 +1,25 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id$
+
+PortSystem          1.0
+PortGroup           perl5 1.0
+
+perl5.setup         PDL-Graphics-Gnuplot 1.5
+#perl5.setup         PDL-Graphics-Gnuplot 1.5 ../by-authors/id/Z/ZO/ZOWIE
+platforms           darwin
+maintainers         nomaintainer
+# Uncomment this line if you know there will be no arch-specific code:
+#supported_archs     noarch
+
+description         Gnuplot-based plotting for PDL
+
+long_description    ${description}
+
+checksums           sha256 32a5f09437bf95f2b7a8791205d88bc708a15cc79f6fdf707ea5ccbf703eceb4 \
+                    rmd160 1a41c75b1b2e6e035d4d84a4e449316aa768c44e
+
+depends_lib-append  port:p${perl5.major}-ipc-run \
+                    port:p${perl5.major}-pdl \
+                    port:gnuplot
+
+
