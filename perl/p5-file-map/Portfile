@@ -16,9 +16,14 @@ long_description    ${description}
 checksums           sha256 960d614c038e2fb74d4a14543b82e6158d7d7e296a3acbe6a683c3280c73e535 \
                     rmd160 a403526ea4e4d6362e6b65eedfd13b3bc915b150
 
-depends_lib-append  port:p${perl5.major}-sub-exporter-progressive \
-                    port:p${perl5.major}-perlio-layers
-depends_build-append port:p${perl5.major}-test-warn \
-                     port:p${perl5.major}-test-exception \
-                     port:p${perl5.major}-test-nowarnings
+if {${perl5.major} != ""} {
+
+    depends_lib-append  port:p${perl5.major}-sub-exporter-progressive \
+                        port:p${perl5.major}-perlio-layers
+    depends_build-append port:p${perl5.major}-test-warn \
+                         port:p${perl5.major}-test-exception \
+                         port:p${perl5.major}-test-nowarnings
+
+}
+
 perl5.use_module_build

@@ -17,8 +17,11 @@ long_description    ${description}
 checksums           sha256 32a5f09437bf95f2b7a8791205d88bc708a15cc79f6fdf707ea5ccbf703eceb4 \
                     rmd160 1a41c75b1b2e6e035d4d84a4e449316aa768c44e
 
-depends_lib-append  port:p${perl5.major}-ipc-run \
-                    port:p${perl5.major}-pdl \
-                    port:gnuplot
+if {${perl5.major} != ""} {
 
+    depends_lib-append  port:p${perl5.major}-ipc-run \
+                        port:p${perl5.major}-pdl \
+                        port:gnuplot
+
+}
 

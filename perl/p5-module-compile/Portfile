@@ -17,6 +17,8 @@ long_description    ${description}
 checksums           sha256 2970f4e493be50a6b9efd594537a943d86e5b9721f6f35ffdbee6aef345b48a1 \
                     rmd160 002ec2c1618c33c6d775b31f44903c289f33d9d0
 
-depends_lib-append  port:p${perl5.major}-digest-sha1
+if {${perl5.major} != ""} {
 
+    depends_lib-append  port:p${perl5.major}-digest-sha1
 
+}

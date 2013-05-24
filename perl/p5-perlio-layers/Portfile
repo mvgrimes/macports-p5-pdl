@@ -16,6 +16,10 @@ long_description    ${description}
 checksums           sha256 e3ab1219092be4a21df1ec48163c83b4166ca8f87d2c659b3a891837e828b271 \
                     rmd160 00106a1e1b599f3d087f175e3b30d03498709e38
 
-depends_lib-append  port:p${perl5.major}-list-moreutils
+if {${perl5.major} != ""} {
+
+    depends_lib-append  port:p${perl5.major}-list-moreutils
+
+}
 
 perl5.use_module_build
