@@ -5,11 +5,10 @@ PortSystem          1.0
 PortGroup           perl5 1.0
 
 perl5.setup         PDL-Graphics-Gnuplot 1.5
-#perl5.setup         PDL-Graphics-Gnuplot 1.5 ../by-authors/id/Z/ZO/ZOWIE
 platforms           darwin
 maintainers         nomaintainer
-# Uncomment this line if you know there will be no arch-specific code:
-#supported_archs     noarch
+license             Artistic GPL-2
+supported_archs     noarch
 
 description         Gnuplot-based plotting for PDL
 

@@ -5,11 +5,10 @@ PortSystem          1.0
 PortGroup           perl5 1.0
 
 perl5.setup         Convert-UU 0.5201
-#perl5.setup         Convert-UU 0.5201 ../by-authors/id/A/AN/ANDK
 platforms           darwin
 maintainers         nomaintainer
-# Uncomment this line if you know there will be no arch-specific code:
-#supported_archs     noarch
+license             Artistic GPL-2
+supported_archs     noarch
 
 description         Perl module for uuencode and uudecode
 
