@@ -11,7 +11,7 @@ maintainers         nomaintainer
 # Uncomment this line if you know there will be no arch-specific code:
 #supported_archs     noarch
 
-description         Module::Compile (no description available)
+description         Perl module to compile other modules
 
 long_description    ${description}
 

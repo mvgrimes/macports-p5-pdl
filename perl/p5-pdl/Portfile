@@ -38,8 +38,7 @@ if {${perl5.major} != ""} {
                         port:plplot \
                         port:p${perl5.major}-convert-uu \
                         port:p${perl5.major}-file-map \
-                        port:p${perl5.major}-module-compile \
-                        port:p${perl5.major}-pdl-graphics-gnuplot
+                        port:p${perl5.major}-module-compile
 
                         # Might be needed:
                         # port:p${perl5.major}-gd \
@@ -89,14 +88,21 @@ if {${perl5.major} != ""} {
             ${worksrcpath}/t/callext.t
     }
 
-    # Create the pdldoc.db file
     post-build {
-        exec ${perl5.bin} -I ${worksrcpath}/blib/arch -I ${worksrcpath}/blib/lib \
+        # Create the pdldoc.db file for the help system
+        exec ${perl5.bin} -I ${worksrcpath}/blib/arch \
+            -I ${worksrcpath}/blib/lib \
             ${worksrcpath}/Doc/scantree.pl ${worksrcpath}/blib/lib \
-            ${worksrcpath}/blib/lib/PDL/pdldoc.db \
+            ${worksrcpath}/pdldoc.db \
             ${worksrcpath}/blib/lib/PDL/Index.pod \
             >/dev/null 2>/dev/null
-        reinplace "s|${worksrcpath}/blib/lib|${perl5.lib}|g" \
-            ${worksrcpath}/blib/lib/PDL/pdldoc.db
+
+        # Rewrite the paths in the pdldoc.db file. scantree will have the
+        # ${worksrcpath}/blib/lib paths, we need ${perl5.archlib}.
+        exec ${perl5.bin} ${filespath}/fix-pdldocdb.pl \
+            ${worksrcpath}/pdldoc.db \
+            ${worksrcpath}/blib/lib/PDL/pdldoc.db \
+            "${worksrcpath}/blib/lib" \
+            "${perl5.archlib}"
     }
 }

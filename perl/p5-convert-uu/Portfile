@@ -11,7 +11,7 @@ maintainers         nomaintainer
 # Uncomment this line if you know there will be no arch-specific code:
 #supported_archs     noarch
 
-description         UUencode and UUdecode
+description         Perl module for uuencode and uudecode
 
 long_description    ${description}
 
